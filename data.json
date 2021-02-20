@@ -1,0 +1,25 @@
+{
+    "courses":[
+        {
+            "id":1,
+            "title":"Nodejs Course",
+            "author":"Jorge Callisaya",
+            "topic":"JavaScript",
+            "url":"https://youtube.com"
+        },
+        {
+            "id":2,
+            "title":"Angular",
+            "author":"Jorge Callisaya",
+            "topic":"TypeScript",
+            "url":"https://youtube.com"
+        },
+        {
+            "id":3,
+            "title":"Graph QL",
+            "author":"Jorge Callisaya",
+            "topic":"JavaScript",
+            "url":"https://youtube.com"
+        }
+    ]
+}

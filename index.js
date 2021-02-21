@@ -12,6 +12,9 @@ const schema = buildSchema(`
         course(id:Int!):Course
         courses(topic:String):[Course]
     }
+    type Mutation {
+        updateCourseTopic(id:Int, topic:String):Course
+    }
     type Course{
         id:Int
         title:String
@@ -20,6 +23,12 @@ const schema = buildSchema(`
         url:String
     }
 `);
+/*
+ * Mutation: Permite alterar los datos
+ * Query: Consultas par obtener datos
+ * Esquema de un objeto que puede devolver 
+*/
+
 
 let getCourse =(args)=>{
     let id = args.id;
@@ -39,12 +48,22 @@ let getCourses =(args)=>{
     }
 
 }
+let updateCourseTopic = ({id,topic})=>{
+    courses.map(course=>{
+        if(course.id == id){
+            course.topic = topic
+            return course;
+        }
+    });
+    return courses.filter(course => course.id === id)[0];
+}
 
 // Sirve para establecer a que puede consultar desde nuestros datos
 const root = {
     message:()=>'hello world',
     course:getCourse,
-    courses:getCourses
+    courses:getCourses,
+    updateCourseTopic:updateCourseTopic
 }
 
 // Creacion de una ruta unica para obtener los datos
